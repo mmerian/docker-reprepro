@@ -1,2 +1,3 @@
 #/bin/sh
-docker build . -t wolfetti/reprepro
+docker pull debian/bullseye-slim
+docker build . -t mmerian/reprepro
