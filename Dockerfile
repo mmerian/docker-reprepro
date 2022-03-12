@@ -9,7 +9,6 @@ RUN \
     nginx \
     ca-certificates \
     reprepro \
-    openssh-server \
     devscripts \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -30,15 +29,13 @@ RUN \
   # Services
   && chmod +x /services/cron/* \
   && chmod +x /services/nginx/* \
-  && chmod +x /services/sshd/* \
   # Symlinks
   && rm /etc/nginx/sites-available/default \
   && ln -s /repo/conf/nginx_site /etc/nginx/sites-available/default \
-  && ln -s /repo/ssh /root/.ssh \
   && ln -s /repo/gnupg /root/.gnupg
 
 # Start
 ENV PATH "/repo/bin:${PATH}"
-EXPOSE 22 80
+EXPOSE 80
 ENTRYPOINT ["/start.sh"]
 CMD []

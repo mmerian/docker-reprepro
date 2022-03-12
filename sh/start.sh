@@ -61,10 +61,6 @@ if [ -f /repo/gnupg/S.gpg-agent ]; then
   chmod 1700 /repo/gnupg/S.*
 fi
 
-# SSH
-chmod 600 /repo/ssh/*key
-chmod 644 /repo/ssh/*.pub
-chmod 600 /repo/ssh/authorized_keys
 
 # Public site
 chmod 755 /repo/public
